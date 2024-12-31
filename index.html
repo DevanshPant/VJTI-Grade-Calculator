@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>VJTI SGPA and CGPA Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Force a fixed width for all devices to mimic desktop
+    document.addEventListener('DOMContentLoaded', () => {
+      if (screen.width < 800) {
+        document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=800, initial-scale=' + (screen.width / 800));
+      }
+    });
+  </script>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <img src="logo.png" alt="VJTI Logo" class="header-logo">
+    <h1>VJTI GRADE CALCULATOR</h1>
+    <img src="CALC.png" alt="Calculator Icon" class="header-icon">
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- SGPA Calculator -->
+    <form id="sgpa-form">
+      <h2>SGPA Calculator</h2>
+      <div id="course-table">
+        <div class="row header">
+          <div>Course Name</div>
+          <div>Credits Allotted</div>
+          <div>Grade Received</div>
+        </div>
+        <div class="row input-row">
+          <input type="text" class="course-name" placeholder="Course Name">
+          <input type="number" class="credits-allotted" placeholder="Credits" min="1">
+          <select class="grade-received">
+            <option value="" disabled selected>Select Grade</option>
+            <option value="10">AA</option>
+            <option value="9">AB</option>
+            <option value="8">BB</option>
+            <option value="7">BC</option>
+            <option value="6">CC</option>
+            <option value="5">CD</option>
+            <option value="4">DD</option>
+            <option value="0">FF</option>
+          </select>
+        </div>
+      </div>
+      <button type="button" id="add-course">+ Add More Courses</button>
+      <div class="buttons">
+        <button type="button" id="calculate-sgpa">Calculate SGPA</button>
+        <button type="reset" id="clear-sgpa">Clear SGPA</button>
+      </div>
+    </form>
+    <div id="sgpa-result">
+      <h2>Your Semester Pointer: <span id="sgpa">0.00</span></h2>
+    </div>
+
+    <!-- CGPA Calculator -->
+    <form id="cgpa-form">
+      <h2>CGPA Calculator</h2>
+      <div id="cgpa-table">
+        <div class="row header">
+          <div>Semester</div>
+          <div>SGPA</div>
+        </div>
+        <div class="row input-row">
+          <input type="text" class="semester-name" placeholder="Semester">
+          <input type="number" class="sgpa-input" placeholder="SGPA" min="0" max="10" step="0.01">
+        </div>
+      </div>
+      <button type="button" id="add-semester">+ Add Semester</button>
+      <div class="buttons">
+        <button type="button" id="calculate-cgpa">Calculate CGPA</button>
+        <button type="reset" id="clear-cgpa">Clear CGPA</button>
+      </div>
+    </form>
+    <div id="cgpa-result">
+      <h2>Your Cumulative Pointer: <span id="cgpa">0.00</span></h2>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    Made by: <strong>Devansh Pant</strong> and <strong>Anannya Nirmale</strong>
+  </footer>
+  
+  <!-- JavaScript -->
+  <script src="index.js"></script>
+</body>
+</html>
